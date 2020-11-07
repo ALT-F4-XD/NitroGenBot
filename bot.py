@@ -31,7 +31,7 @@ async def on_message(message):
         logmess = "Command run at:"+str(datetime.datetime.now())+"\n"
         f=open("log.txt", "a+")
         f.write(logmess)
-        game=discord.Game(name="""Generating Nitro Codes""")
+        game=discord.Game(name="""/nitro""")
         await Client.change_presence(activity=game)
         while x < 50:
             await message.channel.send(link + gen())

@@ -17,7 +17,7 @@ link = "https://discord.gift/"
 
 @Client.event
 async def on_ready():
-    song_name='for user commands' 
+    song_name='/nitro' 
     activity_type=discord.ActivityType.listening
     await Client.change_presence(activity=discord.Activity(type=activity_type,name=song_name))
     print(Client.user.name)

@@ -21,7 +21,7 @@ async def on_ready():
 async def ch_pr():
 	await client.wait_until_ready()
 
-	statuses = [f"{len(client.guilds)} servers | ?help", "Nitro Gen Bot"]
+	statuses = [f"{len(client.guilds)} servers | /nitro", "Nitro Gen Bot"]
 
 	while not client.is_closed():
 
@@ -32,13 +32,6 @@ async def ch_pr():
 		await asyncio.sleep(5)
 
 client.loop.create_task(ch_pr())
-
-@Client.event
-async def on_ready():
-    song_name='/nitro' 
-    activity_type=discord.ActivityType.listening
-    await Client.change_presence(activity=discord.Activity(type=activity_type,name=song_name))
-    print(Client.user.name)
 
 @Client.event
 async def on_message(message):

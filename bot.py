@@ -3,6 +3,7 @@ import random
 import os
 import datetime
 from discord.ext import commands
+import asyncio
 
 with open('helpcommand.txt', 'r') as f:
     f_contents = f.read()
@@ -19,19 +20,19 @@ link = "https://discord.gift/"
 async def on_ready():
 	print("Ready!")
 async def ch_pr():
-	await client.wait_until_ready()
+	await Client.wait_until_ready()
 
-	statuses = [f"{len(client.guilds)} servers | /nitro", "Nitro Gen Bot"]
+	statuses = [f"{len(Client.guilds)} servers", "Nitro Gen Bot", "/nitro"]
 
-	while not client.is_closed():
+	while not Client.is_closed():
 
 		status = random.choice(statuses)
 
-		await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=status))
+		await Client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=status))
 
 		await asyncio.sleep(5)
 
-client.loop.create_task(ch_pr())
+Client.loop.create_task(ch_pr())
 
 @Client.event
 async def on_message(message):

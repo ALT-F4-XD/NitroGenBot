@@ -17,6 +17,24 @@ link = "https://discord.gift/"
 
 @Client.event
 async def on_ready():
+	print("Ready!")
+async def ch_pr():
+	await client.wait_until_ready()
+
+	statuses = [f"{len(client.guilds)} servers | ?help", "Nitro Gen Bot"]
+
+	while not client.is_closed():
+
+		status = random.choice(statuses)
+
+		await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=status))
+
+		await asyncio.sleep(5)
+
+client.loop.create_task(ch_pr())
+
+@Client.event
+async def on_ready():
     song_name='/nitro' 
     activity_type=discord.ActivityType.listening
     await Client.change_presence(activity=discord.Activity(type=activity_type,name=song_name))

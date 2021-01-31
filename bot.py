@@ -45,9 +45,8 @@ async def on_message(message):
         f.write(logmess)
         game=discord.Game(name="""discord.gg/F7KD9tjEaw""")
         await Client.change_presence(activity=game)
-        while x < 50:
+        while True:
             await message.channel.send(link + gen())
-            x=x-1
         else:
             return
 
